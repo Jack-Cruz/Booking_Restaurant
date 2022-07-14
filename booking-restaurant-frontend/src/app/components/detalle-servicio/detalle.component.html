@@ -1,0 +1,54 @@
+<div class="container" *ngIf="servicio">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 pTop50">
+            <mat-card>
+                <img src="https://e.rpp-noticias.io/xlarge/2018/12/31/145514_733004.png"/>
+                <h1> {{servicio.name | uppercase }} </h1>
+                <p> {{servicio.region}} </p>
+                <p> {{servicio.plataforma}} </p>
+            </mat-card>
+        </div>
+    </div>
+
+    <h2>Reviews</h2>
+    <div *ngFor="let r of reviews">
+    <p>Este es un review</p>
+    </div>
+    <!--
+    <div class="container">
+        <h2>Reviews</h2>
+            <p>Es un parrafo</p>
+            <mat-card class="card-theme">
+                <mat-card-content>
+                    <p> {{review.score}} </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    -->
+    
+
+    <div class="col-sm-12 col-md-6 pTop50">
+            <mat-card>
+                <form class="booking-form" [formGroup]="reservaForm" (ngSubmit)="createReserva()">
+                    <h1>Realiza tu reserva del Servicio</h1>
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Anfitrion</mat-label>
+                            <input type="text" formControlName="customers" matInput>
+                        </mat-form-field>
+                    </div>
+                    <Button variant="contained" color="primary" routerLink="/pagoForm">
+                        pagar
+                      </Button>
+                    <div>
+                    </div>
+                </form>    
+            </mat-card>
+    </div>
+    <br>
+    <div>
+        <app-review-form></app-review-form>
+    </div>
+    <br>
+</div>
